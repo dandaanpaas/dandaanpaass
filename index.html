@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>دندادنپاس</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #b71c1c;
+      color: black;
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      background: url("Dandaanpaas Logo png.png") no-repeat center center;
+      background-size: 80%;
+      opacity: 0.25;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      z-index: 0;
+    }
+    h1 {
+      margin-bottom: 30px;
+      position: relative;
+      z-index: 1;
+    }
+    button {
+      display: block;
+      width: 80%;
+      max-width: 300px;
+      margin: 10px auto;
+      padding: 18px;
+      font-size: 22px;
+      border: none;
+      border-radius: 8px;
+      background-color: #ffffff;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      position: relative;
+      z-index: 1;
+    }
+    button:hover {
+      background-color: #f0f0f0;
+    }
+    button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+    .error {
+      color: yellow;
+      margin-top: 15px;
+      display: none;
+      position: relative;
+      z-index: 1;
+    }
+    .gift-code {
+      margin-top: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      color: black;
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <h1>به دندادنپاس خوش آمدید</h1>
+
+  <button id="instagramBtn">اینستاگرام</button>
+  <button id="telegramBtn">تلگرام</button>
+  <button id="giftBtn">کد هدیه</button>
+
+  <div id="errorMsg" class="error">برای دریافت کد هدیه لطفا اینستاگرام و تلگرام مارا فالو کنید</div>
+  <div id="giftCode" class="gift-code"></div>
+
+  <script>
+    let clickedInstagram = false;
+    let clickedTelegram = false;
+
+    document.getElementById("instagramBtn").onclick = () => {
+      clickedInstagram = true;
+      window.open("https://www.instagram.com/dandaanpaas/", "_blank");
+    };
+
+    document.getElementById("telegramBtn").onclick = () => {
+      clickedTelegram = true;
+      window.open("https://t.me/dandaanpaas", "_blank");
+    };
+
+    document.getElementById("giftBtn").onclick = () => {
+      if (clickedInstagram && clickedTelegram) {
+        document.getElementById("errorMsg").style.display = "none";
+        document.getElementById("giftCode").innerText = "DANDAAN123";
+      } else {
+        document.getElementById("giftCode").innerText = "";
+        document.getElementById("errorMsg").style.display = "block";
+      }
+    };
+  </script>
+</body>
+</html>
