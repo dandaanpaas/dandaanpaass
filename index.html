@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>دندادنپاس</title>
   <style>
+    @font-face {
+      font-family: 'Andalus';
+      src: local('Andalus');
+    }
     body {
       font-family: sans-serif;
       background-color: #b71c1c;
@@ -14,20 +18,10 @@
       position: relative;
       overflow-x: hidden;
     }
-    body::before {
-      content: "";
-      background: url("Dandaanpaas Logo png.png") no-repeat center center;
-      background-size: 80%;
-      opacity: 0.25;
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      z-index: 0;
-    }
     h1 {
+      font-family: 'Andalus', sans-serif;
       margin-bottom: 30px;
+      font-size: 32px;
       position: relative;
       z-index: 1;
     }
@@ -51,10 +45,6 @@
     button:hover {
       background-color: #f0f0f0;
     }
-    button:disabled {
-      background-color: #ccc;
-      cursor: not-allowed;
-    }
     .error {
       color: yellow;
       margin-top: 15px;
@@ -70,6 +60,12 @@
       position: relative;
       z-index: 1;
     }
+    .footer-logo {
+      display: block;
+      margin: 40px auto 0;
+      width: 150px;
+      opacity: 0.85;
+    }
   </style>
 </head>
 <body>
@@ -77,10 +73,14 @@
 
   <button id="instagramBtn">اینستاگرام</button>
   <button id="telegramBtn">تلگرام</button>
+  <button onclick="downloadPDFs()">لیست قیمت</button>
+  <button onclick="window.location.href='tel:09360859216'">تماس با ما</button>
   <button id="giftBtn">کد هدیه</button>
 
   <div id="errorMsg" class="error">برای دریافت کد هدیه لطفا اینستاگرام و تلگرام مارا فالو کنید</div>
   <div id="giftCode" class="gift-code"></div>
+
+  <img src="Dandaanpaas Logo png.png" alt="Logo" class="footer-logo" />
 
   <script>
     let clickedInstagram = false;
@@ -105,6 +105,11 @@
         document.getElementById("errorMsg").style.display = "block";
       }
     };
+
+    function downloadPDFs() {
+      window.open("لیست قیمت کلی فنی.pdf", "_blank");
+      window.open("لیست قیمت کلی مواد.pdf", "_blank");
+    }
   </script>
 </body>
 </html>
