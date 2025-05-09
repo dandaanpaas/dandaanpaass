@@ -19,7 +19,7 @@
       position: relative;
       overflow-x: hidden;
       background-image: url("Dandaanpaas Logo png.png");
-      background-size: 90%;
+      background-size: 150%;
       background-repeat: no-repeat;
       background-position: center;
       background-attachment: fixed;
@@ -36,12 +36,12 @@
 
     button {
       display: block;
-      width: 60%;
+      width: 80%;
       max-width: 250px;
       margin: 10px auto;
       padding: 14px;
       font-size: 20px;
-      border: 1px solid black;
+      border: 3px solid black;
       border-radius: 8px;
       background-color: #ffffff;
       color: black;
@@ -57,7 +57,7 @@
     }
 
     .error {
-      color: yellow;
+      color: black;
       margin-top: 15px;
       display: none;
       position: relative;
@@ -136,10 +136,20 @@
       window.open("https://t.me/dandaanpaas", "_blank");
     };
 
+    function generateGiftCode() {
+      const prefix = "DANDAAN-";
+      const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+      let code = "";
+      for (let i = 0; i < 5; i++) {
+        code += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      return prefix + code;
+    }
+
     document.getElementById("giftBtn").onclick = () => {
       if (clickedInstagram && clickedTelegram) {
         document.getElementById("errorMsg").style.display = "none";
-        document.getElementById("giftCode").innerText = "DANDAAN123";
+        document.getElementById("giftCode").innerText = generateGiftCode();
       } else {
         document.getElementById("giftCode").innerText = "";
         document.getElementById("errorMsg").style.display = "block";
