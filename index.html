@@ -118,21 +118,7 @@
   <button id="instagramBtn">اینستاگرام</button>
   <button id="telegramBtn">تلگرام</button>
   <button onclick="window.open('https://www.dandaanpaas.com','_blank')">خرید از سایت</button>
-  <button onclick="showModal()">لیست قیمت</button>
   <button onclick="window.location.href='tel:09360859216'">تماس با ما</button>
-  <button id="giftBtn">کد هدیه</button>
-
-  <div id="errorMsg" class="error">برای دریافت کد هدیه لطفا اینستاگرام و تلگرام مارا فالو کنید</div>
-  <div id="giftCode" class="gift-code"></div>
-
-  <div id="priceModal" class="modal">
-    <div class="modal-content">
-      <p>یکی از فایل‌های زیر را انتخاب کنید:</p>
-      <button onclick="downloadPDF('لیست قیمت کلی فنی.pdf')">لیست قیمت کلی فنی</button>
-      <button onclick="downloadPDF('لیست قیمت کلی مواد.pdf')">لیست قیمت کلی مواد</button>
-      <button onclick="closeModal()">بستن</button>
-    </div>
-  </div>
 
   <script>
     let clickedInstagram = false;
@@ -148,38 +134,7 @@
       window.open("https://t.me/dandaanpaas", "_blank");
     };
 
-    function generateGiftCode() {
-      const prefix = "DANDAAN-";
-      const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-      let code = "";
-      for (let i = 0; i < 5; i++) {
-        code += chars.charAt(Math.floor(Math.random() * chars.length));
-      }
-      return prefix + code;
-    }
-
-    document.getElementById("giftBtn").onclick = () => {
-      if (clickedInstagram && clickedTelegram) {
-        document.getElementById("errorMsg").style.display = "none";
-        document.getElementById("giftCode").innerText = generateGiftCode();
-      } else {
-        document.getElementById("giftCode").innerText = "";
-        document.getElementById("errorMsg").style.display = "block";
-      }
-    };
-
-    function showModal() {
-      document.getElementById("priceModal").style.display = "block";
-    }
-
-    function closeModal() {
-      document.getElementById("priceModal").style.display = "none";
-    }
-
-    function downloadPDF(filename) {
-      window.open(filename, "_blank");
-      closeModal();
-    }
+ 
   </script>
 </body>
 </html>
